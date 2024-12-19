@@ -2,9 +2,17 @@
 const Schema = mongoose.Schema;
 
 const roomSchema = new Schema({
+    title: {
+        type: String,
+        required: true
+    },
     address: {
         type: String,
         required: true
+    },
+    rating: {
+        type: Number,
+        default: 5.0
     },
     images: {
         type: Array,
@@ -14,12 +22,12 @@ const roomSchema = new Schema({
         type: Number,
         required: true
     },
-    constPerMonth: {
+    costPerMonth: {
         type: Number,
         required: true
     },
-    creatorId: {
-        type: mongoose.Types.ObjectId,
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: 'Users'
     },
@@ -30,6 +38,10 @@ const roomSchema = new Schema({
     type: {
         type: String,
         required: true
+    },
+    public: {
+        type: Boolean,
+        default: false
     }
 },{timestamps: true});
 

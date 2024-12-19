@@ -3,6 +3,7 @@ import LogoSVG from "../../components/LogoSVG";
 import NavBarDesktop from "../../components/NavBar";
 import NavBar from "../../components/NavBar";
 import Footer from "../../components/Footer";
+import { Toolbar } from "@mui/material";
 
 
 
@@ -12,6 +13,7 @@ export default function MainLayout(props) {
         <>
         <NavBarDesktop />
         <Outlet />
+        <Toolbar />
         <Footer />
         </>
     )

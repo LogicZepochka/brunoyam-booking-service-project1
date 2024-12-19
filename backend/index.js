@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const AuthRouter = require('./routers/AuthRouter');
 const UserRouter = require('./routers/UserRouter');
+const RoomRouter = require('./routers/RoomRouter');
 
 const PORT = process.env.EXPRESS_PORT || "3306";
 if(!process.env.DB_CONNECTION_STRING) {
@@ -18,6 +19,7 @@ app.use(express.json());
 
 app.use('/auth',AuthRouter);
 app.use('/profile',UserRouter);
+app.use('/rooms',RoomRouter);
 
 
 mongoose.connect(process.env.DB_CONNECTION_STRING).then(() => {

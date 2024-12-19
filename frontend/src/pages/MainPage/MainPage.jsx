@@ -3,9 +3,10 @@ import FastSelectRoomByType from './components/FastSelectByType';
 import FastSearch from './components/FastSearchComponent';
 import SpecialBlogBlock from './components/SpecialBlogBlock';
 import MostPopularHotels from './components/MostPopularHotels';
+import { useNavigate } from 'react-router-dom';
 
 export default function MainPage({...props}) {
-
+    const navigate = useNavigate();
 
     return (
         <Stack direction='column'>
@@ -34,7 +35,7 @@ export default function MainPage({...props}) {
                         justifyContent: 'flex-start',
                         paddingTop: '4px'
                     }}>
-                        <Button variant='contained'>
+                        <Button variant='contained' onClick={() => navigate("/search")}>
                             Выбрать помещение для аренды
                         </Button>
                     </Box>
@@ -42,12 +43,11 @@ export default function MainPage({...props}) {
             </Box>
 
             <Container>
-                <Stack direction='column' spacing={2} paddingTop={2}>
+                <Stack direction='column' spacing={{xs: 2, sm: 2, md: 3, lg: 4}} paddingTop={2}>
                     <FastSearch />
                     <FastSelectRoomByType />
                     <MostPopularHotels />
                     <SpecialBlogBlock />
-                    <Toolbar /> {/* Просто чтобы футер не "присасывался к элементам" */}
                 </Stack>
             </Container>
         </Stack>

@@ -20,6 +20,8 @@ import { createContext, useContext, useState } from 'react';
 import UserContext from './context/UserContext/UserContext.js';
 import UserProvider from './context/UserContext/UserProvider.js';
 import MainLayout from './pages/Layouts/MainLayout.jsx';
+import SearchPage from './pages/SearchPage/SearchPage.jsx';
+import RoomPage from './pages/RoomPage/RoomPage.jsx';
 
 
 const CheckLogin = (props) => {
@@ -43,6 +45,8 @@ function App() {
         <Routes>
           <Route path='/' element={<MainLayout />}>
               <Route index element={<MainPage />} />
+              <Route path="search" element={<SearchPage />} />
+              <Route path="room" element={<RoomPage />} />
           </Route>
           <Route path='/login' element={<LogIn />}>
               <Route index element={<LoginForm />} />
